@@ -1,0 +1,5 @@
+#!/bin/sh
+
+song=$(playerctl metadata --player=spotifyd --format "Title: {{title}} \nArtist: {{artist}}\nAlbum: {{album}}")
+
+notify-send "Spotify" "$song"
