@@ -7,6 +7,8 @@
 
 + **color scheme**: catppuccin
 
+dwm patches: vanitygaps, movestack, setcfacts, ipc-patch, anybar patch, pertag patch, preserveonrestart (from siduck's chadwm dwm build) 
+
 my dotfiles for my surface pro 6. i use the linux-surface kernel.
 
 ## extra stuff to install
@@ -28,6 +30,8 @@ my dotfiles for my surface pro 6. i use the linux-surface kernel.
 - jiskan16 japanese bitmap fonts (forgot where i got these...)
 - terminus
 - nerd-fonts-complete
+- misc tamsyn
 
 credit to tsjazil for the polybar theme! still working on my own :>
+
 
