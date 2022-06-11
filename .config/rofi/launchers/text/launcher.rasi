@@ -1,0 +1,108 @@
+configuration {
+  font:   "Terminus 16";
+  fixed-num-lines: true;
+  show-icons: false;
+  click-to-exit: true;
+  window-format:          "[{w}] ··· {c} ···   {t}";
+}
+
+@import "styles/colors.rasi"
+
+* {
+  background-color: @bg;
+  font-size: 16;
+}
+
+window {
+  border:   0px;
+  padding:  12px;
+  border-radius: 10px;
+  width: 40%;
+  height: 70%;
+}
+
+prompt {
+  spacing:    0;
+  border:     0;
+  text-color: @fg;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str:  " ";
+  margin: 0px 4px 4px 0px;
+  text-color: inherit;
+}
+
+entry {
+  placeholder: "filter apps...";
+  cursor: pointer;
+}
+
+element {
+  spacing: 5px;
+  children: [ element-text ];
+  orientation: horizontal;
+  border: 2px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+element-text, element-icon {
+  background-color: #00000000;
+  text-color: inherit;
+}
+
+element normal.normal {
+    background-color:         @bg;
+    text-color:               @fg;
+}
+
+element normal.urgent {
+    background-color:         @bg;
+    text-color: @red;
+}
+
+element normal.active {
+    text-color: @bg;
+    background-color: @green;
+}
+
+element selected.normal {
+  background-color: @ac;
+  text-color: @bg;
+}
+
+element selected.urgent {
+  background-color: @bg;
+  text-color: @red;
+}
+
+element selected.active {
+  background-color: @bg;
+  text-color: @bg;
+}
+
+element alternate.normal {
+  background-color: @bg;
+  text-color:       @fg;
+}
+
+element alternate.urgent {
+  background-color: @bg;
+  text-color:       @fg;
+}
+
+element alternate.active {
+  background-color: @bg;
+  text-color:       @fg;
+}
+
+scrollbar {
+  width:    4px;
+  border:   0px;
+  handle-color:   @fg;
+  handle-width:   8px;
+  padding:  0;
+}
+
