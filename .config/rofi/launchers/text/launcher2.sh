@@ -12,8 +12,8 @@
 
 theme="launcher"
 
-dir="$HOME/.config/rofi/launchers/text"
-styles=($(ls -p --hide="colors.rasi" $dir/styles))
+dir="$HOME/gits/dotfiles/.config/rofi/launchers/text"
+styles=($(ls -p --hide="colors.rasi" $dir/styles/catppuccin.rasi))
 color="${styles[$(( $RANDOM % 10 ))]}"
 
 # comment this line to disable random colors
@@ -25,5 +25,5 @@ color="${styles[$(( $RANDOM % 10 ))]}"
 
 rofi -no-lazy-grab -show drun \
 -modi run,drun,window \
--theme $dir/"$theme"
+-theme $dir/styles/catppuccin.rasi
 

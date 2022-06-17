@@ -12,7 +12,7 @@
 
 theme="style_2"
 
-dir="$HOME/.config/rofi/launchers/text"
+dir="$HOME/gits/dotfiles/.config/rofi/launchers/text"
 styles=($(ls -p --hide="colors.rasi" $dir/styles))
 color="${styles[$(( $RANDOM % 10 ))]}"
 

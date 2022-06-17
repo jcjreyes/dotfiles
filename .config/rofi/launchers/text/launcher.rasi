@@ -1,12 +1,12 @@
 configuration {
-  font:   "Terminus 16";
+  font: "Terminus 16";
   fixed-num-lines: true;
   show-icons: false;
   click-to-exit: true;
   window-format:          "[{w}] ··· {c} ···   {t}";
 }
 
-@import "styles/colors.rasi"
+@import "styles/catppuccin.rasi"
 
 * {
   background-color: @bg;
