@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# exports an .md file into a pdf using latex.
+# disables float on pictures in order to preserve picture and text order
+
+DISABLE_FLOAT=$HOME/scripts/disable_float.tex
+PDF_DIR=$HOME/Documents/PDF
+FILE="$1"
+
+pandoc "$FILE" -H $DISABLE_FLOAT -o "$PDF_DIR"/"$FILE".pdf

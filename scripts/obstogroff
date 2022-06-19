@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# obstogroff
+# Linux parts not tested (please review)!
+
+########## CONFIGURATION ###########
+PGROFF="$HOME"/scripts/pgroff
+VAULT="$HOME"/Dropbox/Notes
+PDFDIR="$HOME"/Documents/PDF
+PDFAPP="LivePDFViewer"
+####################################
+
+UNAME=$(uname);
+case "$UNAME" in
+	(*Darwin*) NOTE="$(pbpaste)" ;; # macOS
+	(*Linux*) NOTE="$(xclip -selection clipboard -o)" ;; # Linux
+esac;
+
+FILE="$VAULT"/"$NOTE"
+
+if [ "$1" == "-kill" ]; then
+	pkill -f "entr $PGROFF" 
+	exit;
+fi
+
+if [[ "$NOTE" == *".md" ]]; then
+	PRE="${NOTE##*/}"
+	BASE="${PRE%.*}"
+	open -a "$PDFAPP" "$PDFDIR"/"$BASE".pdf || true
+	echo "$FILE" | entr "$PGROFF" "$FILE"
+else
+	exit;
+fi
+

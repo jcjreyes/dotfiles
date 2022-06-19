@@ -1,0 +1,12 @@
+#!/bin/bash
+
+temp="$(playerctl metadata --player=spotifyd --format "Title: {{title}} \nArtist: {{artist}}\nAlbum: {{album}}")"
+
+[[ $temp == "No player could handle this command" ]] && echo "Equal" || echo "Not equal"
+
+if [ $temp == "No player could handle this command" ] 
+then
+  echo "Equal"
+else
+  echo "Not Equal!"
+fi

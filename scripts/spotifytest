@@ -1,46 +1,14 @@
-#!/bin/bash
-
-# ^c$var^ = fg color
-# ^b$var^ = bg color
-
-interval=5
-
-# load colors
-. ~/.config/suckless/dwm-gaps-eww/bar_themes/catppuccin
-
-cpu() {
-  cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
-
-  printf "^c$black^ ^b$green^ cpu"
-  printf "^c$white^ ^b$grey^ $cpu_val"
-}
-
-mem() {
-  printf "^c$black^^b$white^ ram "
-  printf "^c$white^^b$grey^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
-}
-
-clock() {
-	printf "^c$black^ ^b$darkblue^ time "
-	printf "^c$white^^b$grey^ $(date '+%H:%M')"
-}
-
-volume() {
-  volume=$(pamixer --get-volume)
-
-  printf "^c$grey^^b$red^ vol "
-  printf "^c$white^^b$grey^ $volume "
-}
-
-gputemp() {
-  temp="$(sensors | grep "junction" | awk '{print $2}')"
-  temp="${temp:1}"
-
-  printf "^c$black^^b$yellow^ gpu "
-  printf "^c$white^^b$grey^ $temp"
-}
-
-dwm_spotify () {
+#!/bin/sh
+	
+	# A dwm_bar function that shows the current artist, track, duration, and status from Spotify using playerctl
+	# Joe Standring <git@joestandring.com>
+	# GNU GPLv3
+	
+	# Dependencies: spotify/spotifyd, playerctl
+	
+	# NOTE: The official spotify client does not provide the track position or shuffle status through playerctl. This does work through spotifyd however.
+	
+	dwm_spotify () {
 	    if ps -C spotify > /dev/null; then
 	        PLAYER="spotify"
 	    elif ps -C spotifyd > /dev/null; then
@@ -82,8 +50,8 @@ dwm_spotify () {
 	        fi
 	        
 	        if [ "$PLAYER" = "spotifyd" ]; then
-	            printf "^c$black^ ^b$green^%s%s %s - %s" "$SEP1" "$STATUS" "$ARTIST" "$TRACK"
-	            printf " | %0d:%02d " $((DURATION%3600/60)) $((DURATION%60))
+	            printf "%s%s %s - %s " "$SEP1" "$STATUS" "$ARTIST" "$TRACK"
+	            printf "%0d:%02d" $((DURATION%3600/60)) $((DURATION%60))
 	            printf "%s\n" "$SEP2"
 	        else
 	            printf "%s%s %s - %s " "$SEP1" "$STATUS" "$ARTIST" "$TRACK"
@@ -93,11 +61,5 @@ dwm_spotify () {
 	        fi
 	    fi
 	}
-
-while true; do
-
-  [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ]
-  interval=$((interval + 1))
-
-  sleep 1 && xsetroot -name "$(cpu) $(mem) $(clock) $(volume) $(gputemp) $(dwm_spotify)"
-done
+	
+	dwm_spotify
