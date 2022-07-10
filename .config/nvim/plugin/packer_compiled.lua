@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/justin/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -124,6 +129,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/justin/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-hexokinase"] = {
+    loaded = true,
+    path = "/home/justin/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
   }
 }
 

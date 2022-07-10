@@ -2,6 +2,7 @@ require('basics')
 require('colors')
 require('telescope-config')
 require('coc-config')
+require("nvim-tree").setup()
 require('lualine').setup()
 --
 require'nvim-treesitter.configs'.setup {
@@ -46,5 +47,17 @@ return require('packer').startup(function()
 	  "catppuccin/nvim",
 	  as = "catppuccin"
   })
+  use {
+    'rrethy/vim-hexokinase',
+    run = 'make hexokinase'
+  }
+  use 'mattn/emmet-vim'
+use {
+  'kyazdani42/nvim-tree.lua',
+  requires = {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+  },
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
 end)
 
